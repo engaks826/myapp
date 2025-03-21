@@ -13,7 +13,7 @@ DEBUG = True
 SITE_NAME = getenv("SITE_NAME")
 
 
-# to generate New secrete Key --> python -c "import secrets; print(secrets.token_urlsafe(38))"
+# to generate New secrete Key execute --> python -c "import secrets; print(secrets.token_urlsafe(38))"
 SECRET_KEY = getenv("DJANGO_SECRETE_KEY","8A6h4HGlFgp69RgkIQsMwry7jMoS5eSf3Ru8sFQHo6bWuyOxMqU")
 
 ALLOWED_HOSTS = ["localhost","127.0.0.1", "0.0.0.0"]
@@ -27,3 +27,9 @@ DEFAULT_FROM_EMAIL = getenv("DEFAULT_FROM_EMAIL")
 
 DOMAIN = getenv("DOMAIN")
 
+LOGGING = {"version": 1, 
+           "disable_existing_loggers": False, 
+           "formatters": {"verbose":{"format": "%(levelname)s %(name)-12s %(asctime)s %(module)s %(process)d %(thread)d %(message)s"}},
+           "handlers": {"console": {"level": "DEBUG", "class": "logging.StreamHandler", "formatter": "verbose"}},
+           "root": {"level": "INFO", "handlers": ["console"]},
+           }
